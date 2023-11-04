@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block dashboard %}
+
+
+<div>
+    <h1 align="center"> Todos Clientes</h1>
+    <div class="container">      
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">mensalidade</th>
+                <th scope="col">Ocorrências</th>
+                <th scope="col">Inlcuir</th>
+                <th scope="col">Status</th>
+                <th scope="col">Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for clientes in result %}
+                <tr>
+                  <th scope="row">1</th>
+                  <td>{{clientes.name_cliente}}</td>
+                  <td>R${{clientes.mensalidade}}0</td>
+                  <td>{{clientes.ocorrencias}}</td>
+                  <td><button id="btn-modal" class="btn btn-primary mb-2">Incluir</button></td>
+                  <td><button class="btn btn-danger">Devedor</button></td>
+                  <td><button class="btn btn-primary"><i class='bx bx-cog' ></i></button></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+</div>
+
+
+{% block body %}
+  <dialog>
+      <h1 class="modal-title fs-5" align="center">Ocorrência</h1>
+      <div class="modal-body">
+        <form action="" method="post">
+          <input class="form-control mb-2" type="text" placeholder="Nome da Ocorrência" name="ocorrencia">
+          <input class="form-control mb-2" type="text" placeholder="Nivel de 1-5" maxlength="1" size="1" name="nivel">
+          <button type="button" class="btn btn-primary">Registrar</button>
+          <button type="button" class="btn btn-danger" id="close_button">Fechar</button>
+        </form>
+      </div>
+  </dialog>
+
+{% endblock %}
+
+
+<style>
+  dialog::backdrop{
+    background-color: rbg(0 0 0 /0.5);
+  }
+
+  dialog{
+    align-items: center;
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%; 
+    margin-left: -150px;
+    margin-top: -150px;
+    border-radius: 12px;
+    border-color: aliceblue;
+  }
+</style>
+
+
+<script>
+  const button = document.getElementById("btn-modal")
+  const modal = document.querySelector("dialog")
+  const buttonClose = document.getElementById("close_button")
+
+  button.onclick = function (){
+    modal.showModal()
+  }
+
+  buttonClose.onclick = function (){
+    modal.close()
+  }
+
+</script>
+
+{% endblock %}

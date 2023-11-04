@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block dashboard %}
+<div>
+    <h1 align="center"> Cadastrar Cliente</h1>
+    <div class="container">      
+        <form action="{{url_for('clientes')}}" method="post">
+            <label class="form-label">Nome Completo:</label>
+            <input class="form-control" type="text" name="nome">
+            <label class="form-label">Email:</label>
+            <input class="form-control"type="email" name="email">
+            <label class="form-label">Endereço:</label>
+            <input class="form-control"type="text" name="endereco">
+            <label class="form-label">Bairro:</label>
+            <input class="form-control"type="text" name="bairro">
+            <label class="form-label">Cidade:</label>
+            <input class="form-control"type="text" name="cidade">
+            <label class="form-label">Mensalidade:</label>
+            <input class="form-control mb-2"type="text" name="mensalidade" maxlength="10" size="10">
+            <button type="submit" class="btn btn-primary ">Cadastrar</button>
+        </form>   
+    </div>
+</div>
+
+{% endblock %}
