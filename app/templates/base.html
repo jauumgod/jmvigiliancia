@@ -22,14 +22,14 @@
         </div>
         <ul class="nav-list">
           <li>
-            <a href="{{url_for('todos_clientes')}}">
+            <a href="{{url_for('homepage')}}">
               <i class='bx bx-grid-alt'></i>
               <span class="links_name">Página inicial</span>
             </a>
             <span class="tooltip">Página inicial</span>
           </li>
           <li>
-          <a href="{{url_for('clientes')}}">
+          <a href="{{url_for('todos_clientes')}}">
             <i class='bx bx-user' ></i>
             <span class="links_name">Clientes</span>
           </a>
@@ -57,7 +57,7 @@
           <span class="tooltip">Configurações</span>
         </li>
         <li>
-          <a href="#">
+          <a href="{{url_for('logout')}}">
             <i class="bx bx-left-arrow-circle"></i>
             <span class="links_name">Sair</span>
           </a>

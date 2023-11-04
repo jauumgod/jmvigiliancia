@@ -20,9 +20,13 @@ def clientes():
         
     return render_template('cadastro/clientes.html')
 
-
+PER_PAGE = 10
 @app.route("/todos_clientes")
 def todos_clientes():
     result = Clientes.query.all()
     return render_template("cadastro/todos_clientes.html", result = result)
+
+
+
+
 

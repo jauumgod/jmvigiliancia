@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block dashboard %}
+
+<h1 align="center">DashBoard</h1>
+<br>
+<div class="grid text-center" >
+    <div class="dashboard_ocorrencias">
+        <h2>Ocorrencias</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Domingo</li>
+            <li class="list-group-item">Segunda</li>
+            <li class="list-group-item">Terça</li>
+            <li class="list-group-item">Quarta</li>
+            <li class="list-group-item">Quinta</li>
+            <li class="list-group-item">Sexta</li>
+            <li class="list-group-item">Sábado</li>
+        </ul>
+    </div>
+    <div class="dashboard_pagamentos">
+        <h2>Pagamentos</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Pendentes</li>
+            <li class="list-group-item">Em dias</li>
+            <li class="list-group-item">Agendados</li>
+            <li class="list-group-item">Vencidos</li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    .grid{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .list-group-item:hover{
+        background-color: #ccc;
+    }
+    .dashboard_ocorrencias{
+        background-color: rgb(141, 141, 141);
+        height: 200px;
+        width: 300px;
+        border-radius: 5px;
+    }
+    .dashboard_pagamentos{
+        background-color: rgb(141, 141, 141);
+        height: 200px;
+        width: 300px;
+        border-radius: 5px;
+    }
+</style>
+{% endblock %}

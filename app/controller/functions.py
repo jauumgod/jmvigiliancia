@@ -1,8 +1,17 @@
-from ..models.usuarios import Usuarios
 
-def create_user(usuario, senha):
 
-    db = Usuarios.query.add()
+class ClienteRelatorios:
 
-    return True
+    def __init__(self) -> None:
+        pass
+
+    def search_cliente():
+        return 
+
+    def filter_cliente():
+        return
+    
+    def pagamento_cliente():
+        return
+    
 

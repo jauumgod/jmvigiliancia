@@ -7,6 +7,4 @@ class Usuarios(db.Model, UserMixin):
     password = db.Column(db.String(255), nullable=False)
     permissao = db.Column(db.String(10), nullable=False)
 
-    def __init__(self, name):
-        self.name = name
     

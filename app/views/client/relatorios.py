@@ -12,3 +12,7 @@ def historico():
 def ocorrencias():
     return render_template("relatorios/ocorrencias.html")
 
+
+@app.route("/homepage")
+def homepage():
+    return render_template("home/homepage.html")

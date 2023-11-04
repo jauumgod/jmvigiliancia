@@ -5,35 +5,49 @@
 
 <div>
     <h1 align="center"> Todos Clientes</h1>
-    <div class="container">      
+    <a href="{{url_for('clientes')}}"><button class="btn btn-dark mb-2">Adicionar Cliente</button></a>
+    <div class="container"> 
+      <br>    
         <table class="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
-                <th scope="col">mensalidade</th>
+                <th scope="col">Mensalidade</th>
                 <th scope="col">Ocorrências</th>
                 <th scope="col">Inlcuir</th>
                 <th scope="col">Status</th>
-                <th scope="col">Options</th>
+                <th scope="col">Opções</th>
               </tr>
             </thead>
             <tbody>
               {% for clientes in result %}
                 <tr>
-                  <th scope="row">1</th>
+                  <th scope="row">{{clientes.id_cliente}}</th>
                   <td>{{clientes.name_cliente}}</td>
                   <td>R${{clientes.mensalidade}}0</td>
                   <td>{{clientes.ocorrencias}}</td>
                   <td><button id="btn-modal" class="btn btn-primary mb-2">Incluir</button></td>
                   <td><button class="btn btn-danger">Devedor</button></td>
-                  <td><button class="btn btn-primary"><i class='bx bx-cog' ></i></button></td>
+                  <td><button class="btn btn-primary"><i class='bx bx-cog'></i></button></td>
                 </tr>
               {% endfor %}
             </tbody>
           </table>
     </div>
+    <br>
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
 </div>
+
+
 
 
 {% block body %}
@@ -53,6 +67,13 @@
 
 
 <style>
+
+  nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   dialog::backdrop{
     background-color: rbg(0 0 0 /0.5);
   }

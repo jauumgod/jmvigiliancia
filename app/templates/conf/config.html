@@ -1,11 +1,62 @@
 {% extends "base.html" %}
 
 {% block dashboard %}
-<div>
-    <h1 align="center"> Configurações</h1>
-    <div class="container">      
 
+<h1 align="center">DashBoard</h1>
+<br>
+
+<div class="grid text-center" >
+    <div class="dashboard_cadastro">
+        <h2 align="center">Cadastro</h2>
+        <form action="{{url_for('cadastro')}}" method="post">
+            <input class="form-control mb-2" type="text" placeholder="username" name="username">
+            <input class="form-control mb-2" type="password" placeholder="********" name="password">
+            <p>senha de 8 digitos por favor.</p>
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+        </form>
+    </div>
+    <div class="dashboard_usuarios">
+        <h2>Usuarios</h2>
+        <ul>
+            {% for users in usuarios %}
+            <li class="list-group-item">{{users.username}}</li>
+            <a class="row-0" href=""><button class="btn btn-primary">Editar</button></a>
+            <a class="row-1" href="{{url_for('delete_usuario', id=users.id)}}"><button class="btn btn-danger">Delete</button></a>
+            {% endfor %}
+        </ul>
     </div>
 </div>
 
+<div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      
+      {% for message in messages %}
+      <div align="center" class="alert alert-danger" role="alert">
+       {{message}}
+      </div>
+      {% endfor %}
+
+    {% endif %}
+{% endwith %}
+</div>
+
+<style>
+    .grid{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .dashboard_usuarios{
+        background-color: #ccc;
+        width: 300px;
+        border-radius: 5px;
+    }
+    .dashboard_cadastro{
+        background-color: #ccc;
+        width: 300px;
+        border-radius: 5px;
+    }
+</style>
 {% endblock %}
